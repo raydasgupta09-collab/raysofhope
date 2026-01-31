@@ -1,211 +1,646 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Art for Hope – Supporting Cancer Hospitals</title>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art for Hope - Supporting Cancer Hospitals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-}
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
 
-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-}
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-header h1 { font-size: 2.5rem; }
-header p { font-size: 1.2rem; }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
 
-nav {
-    background: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-}
+        .cause-banner {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
+        .cause-banner h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
+        .progress-container {
+            max-width: 600px;
+            margin: 1.5rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-nav a:hover {
-    background: #667eea;
-    color: white;
-}
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem;
-}
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+        }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-}
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+        }
 
-.artwork-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+        .stat {
+            text-align: center;
+        }
 
-.artwork-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
 
-.artwork-info {
-    padding: 1.5rem;
-}
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
 
-.artwork-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.artwork-price {
-    font-size: 1.4rem;
-    color: #667eea;
-    font-weight: bold;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
 
-.order-btn {
-    margin-top: 1rem;
-    width: 100%;
-    padding: 0.75rem;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
 
-.order-btn:hover { opacity: 0.9; }
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
 
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
-@media (max-width: 768px) {
-    nav ul { gap: 1rem; flex-wrap: wrap; }
-}
-</style>
+        .about-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 5px solid #667eea;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .artwork-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .artwork-info {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .artwork-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .artwork-price {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .order-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .order-btn:hover {
+            opacity: 0.9;
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <h1>🎨 Rays of Hope</h1>
+        <p>A High School Initiative to Support Cancer Hospitals</p>
+    </header>
 
-<header>
-    <h1>🎨 Rays of Hope</h1>
-    <p>A High School Initiative to Support Cancer Hospitals</p>
-</header>
+    <div class="cause-banner">
+        <h2>💙 Every Piece Makes a Difference</h2>
+        <p>100% of proceeds go directly to local cancer hospitals to support patients and their families</p>
+        
+        <div class="progress-container">
+            <h3>Fundraising Goal: $5,000</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 35%;">0%</div>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="raisedAmount">$1750</div>
+                    <div class="stat-label">Raised</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="artworksSold">23</div>
+                    <div class="stat-label">Artworks Sold</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="supporters">31</div>
+                    <div class="stat-label">Supporters</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<nav>
-<ul>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#contact">Order/Contact</a></li>
+        </ul>
+    </nav>
 
-<div class="container">
+    <div class="container">
+        <section id="about" class="about-section">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23667eea'/%3E%3Ctext x='75' y='95' font-size='60' text-anchor='middle' fill='white'%3E🎨%3C/text%3E%3C/svg%3E" alt="Artist">
+            <h2>Hi, I'm Ray - Student Artist &amp; Fundraiser</h2>
+            <p>I'm a junior at Scarsdale High School, and art has always been my passion. When my aunt was diagnosed with cancer last year, it deeply affected me. However, I was able to see firsthand how much cancer hospitals do for patients and families. I wanted to find a way to give back, so I'm selling my artwork to raise money for cancer research and patient support programs.</p>
+        </section>
 
-<h2 id="gallery" style="text-align:center;color:#667eea;margin-bottom:2rem;">
-Available Artwork
-</h2>
+        <section id="gallery">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Available Artwork</h2>
+            <div class="gallery" id="artworkGallery">
+                <!-- Artwork cards will be inserted here -->
+                </div><div class="artwork-card">
+                    <div class="IMG_0120.jpeg">
+                    <img src="https://uploads.onecompiler.io/44bpka33b/44bphyd8n/IMG_0120.jpeg" alt="Sunset Dreams" style="width: 200px; height: 200px; object-fit: cover;"></div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Static of the Deep</h3>
+                        <p class="artwork-description">Black and white paint, Shows one of the most popular aquatic animals, a shark, however, it being black and white like a weak TV signal represents humanity losing its connection to nature.</p>
+                        <div class="artwork-price">$65</div>
+                        <button class="order-btn" onclick="orderArtwork(2)">Order This Piece</button>
+                    </div>
+                </div><div class="artwork-card">
+                    <div class="IMG_0104.jpeg">
+                    <img src="https://uploads.onecompiler.io/44bpka33b/44bpmge9d/IMG_0104.jpeg" alt="Sunset Dreams" style="width: 200px; height: 200px; object-fit: cover;"></div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Gaia's Jaw</h3>
+                        <p class="artwork-description">Watercolors, An alligator, but its forehead is made out of earths forest, its spikes out of earths mountains, and its jaw out of earths oceans and boats and ships, hence the name "Gaia" - earth in ancient Rome.</p>
+                        <div class="artwork-price">$95</div>
+                        <button class="order-btn" onclick="orderArtwork(3)">Order This Piece</button>
+                    </div>
+                </div><div class="artwork-card">
+                    <div class="IMG_0106,jpeg">
+                    <img src="https://uploads.onecompiler.io/44bpka33b/44bpmge9d/IMG_0106.jpeg" alt="Sunset Dreams" style="width: 200px; height: 200px; object-fit: cover;"></div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Sharp Silvers</h3>
+                        <p class="artwork-description">Charcoal black and white, Tools and utensils that we use in our everyday life, all on a singal plate, insignificant compared to the acres of nature we ignore or tear down everyday.</p>
+                        <div class="artwork-price">$75</div>
+                        <button class="order-btn" onclick="orderArtwork(4)">Order This Piece</button>
+                    </div>
+                </div><div class="artwork-card">
+                    <div class="IMG_0790.JPG">
+                    <img src="https://uploads.onecompiler.io/44bpka33b/44bspfenm/IMG_0790.JPG" alt="Sunset Dreams" style="width: 200px; height: 200px; object-fit: cover;"></div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Depths of the Real Word</h3>
+                        <p class="artwork-description">Pencil sketch, Spiders coming out of the ocean and earth, symbolizing how humans have polluted our waste deep into the earth.</p>
+                        <div class="artwork-price">$110</div>
+                        <button class="order-btn" onclick="orderArtwork(5)">Order This Piece</button>
+                    </div>
+                    <div class="artwork-card">
+                    <div class="1.png">
+                    <img src="https://uploads.onecompiler.io/44bpka33b/44bphyd8n/1.png" alt="Sunset Dreams" style="width: 200px; height: 200px; object-fit: cover;"></div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">Victory</h3>
+                        <p class="artwork-description">Digital art on Canva, Decorated football player celebrating a huge victory.</p>
+                        <div class="artwork-price">$85</div>
+                        <button class="order-btn" onclick="orderArtwork(1)">Order This Piece</button>
+                    </div>
+                </div></div>
+        
 
-<div class="gallery">
+        <section id="mission" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 3rem 0;">
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 1.5rem;">Why This Matters</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Cancer affects millions of families every year. Local cancer hospitals provide not just treatment, but hope, support, and care during the most difficult times. Every dollar raised through this initiative goes directly to support patient care programs, research, and family support services. Together, we can make a real difference in the lives of cancer patients and their families.
+            </p>
+        </section>
 
-<div class="artwork-card">
-<img class="artwork-image" src="images/IMG_0120.jpeg" alt="Static of the Deep">
-<div class="artwork-info">
-<h3 class="artwork-title">Static of the Deep</h3>
-<p>Black and white paint. A shark symbolizing humanity losing connection to nature.</p>
-<div class="artwork-price">$65</div>
-<button class="order-btn">Order This Piece</button>
+        <section id="contact" class="contact-section">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Order Artwork or Get in Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="artwork">Interested Artwork</label>
+                    <select id="artwork" name="artwork">
+                        <option value="">Select an artwork...</option>
+                    <option value="Sunset Dreams">Sunset Dreams - $85</option><option value="Ocean Whispers">Ocean Whispers - $65</option><option value="City Lights">City Lights - $95</option><option value="Blooming Hope">Blooming Hope - $75</option><option value="Mountain Majesty">Mountain Majesty - $110</option><option value="Forest Path">Forest Path - $60</option></select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required="" placeholder="Let me know which piece you're interested in or if you have any questions!"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </section>
+    
+
+    <footer>
+        <p>© 2024 Art for Hope Initiative | 100% of proceeds benefit cancer hospitals</p>
+        <p>Contact: artforhope@email.com | Follow the journey on Instagram @artforhope</p>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2 id="modalTitle">Order Artwork</h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Sample artwork data
+        const artworks = [
+            {
+                id: 1,
+                title: "Sunset Dreams",
+                description: "Acrylic on canvas, 16x20 inches. Vibrant sunset landscape with mountains.",
+                price: 85,
+                <div class="1.png">
+    <img src="myart.jpg" alt="Sunset Dreams" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
-</div>
+            },
+            {
+                id: 2,
+                title: "Ocean Whispers",
+                description: "Watercolor, 12x16 inches. Peaceful beach scene with gentle waves.",
+                price: 65,
+                emoji: "🌊"
+            },
+            {
+                id: 3,
+                title: "City Lights",
+                description: "Mixed media, 18x24 inches. Abstract cityscape at night.",
+                price: 95,
+                emoji: "🌃"
+            },
+            {
+                id: 4,
+                title: "Blooming Hope",
+                description: "Oil painting, 14x18 inches. Colorful flower garden in spring.",
+                price: 75,
+                emoji: "🌸"
+            },
+            {
+                id: 5,
+                title: "Mountain Majesty",
+                description: "Acrylic on canvas, 20x24 inches. Majestic mountain range at dawn.",
+                price: 110,
+                emoji: "⛰️"
+            },
+            {
+                id: 6,
+                title: "Forest Path",
+                description: "Watercolor, 11x14 inches. Serene woodland trail in autumn.",
+                price: 60,
+                emoji: "🌲"
+            }
+        ];
 
-<div class="artwork-card">
-<img class="artwork-image" src="images/IMG_0104.jpeg" alt="Gaia's Jaw">
-<div class="artwork-info">
-<h3 class="artwork-title">Gaia's Jaw</h3>
-<p>Watercolors depicting Earth as a living organism.</p>
-<div class="artwork-price">$95</div>
-<button class="order-btn">Order This Piece</button>
-</div>
-</div>
+        // Populate gallery
+        function populateGallery() {
+            const gallery = document.getElementById('artworkGallery');
+            const artworkSelect = document.getElementById('artwork');
+            
+            artworks.forEach(art => {
+                // Create card
+                const card = document.createElement('div');
+                card.className = 'artwork-card';
+                card.innerHTML = `
+                    <div class="artwork-image">${art.emoji}</div>
+                    <div class="artwork-info">
+                        <h3 class="artwork-title">${art.title}</h3>
+                        <p class="artwork-description">${art.description}</p>
+                        <div class="artwork-price">$${art.price}</div>
+                        <button class="order-btn" onclick="orderArtwork(${art.id})">Order This Piece</button>
+                    </div>
+                `;
+                gallery.appendChild(card);
+                
+                // Add to select
+                const option = document.createElement('option');
+                option.value = art.title;
+                option.textContent = `${art.title} - $${art.price}`;
+                artworkSelect.appendChild(option);
+            });
+        }
 
-<div class="artwork-card">
-<img class="artwork-image" src="images/IMG_0106.jpeg" alt="Sharp Silvers">
-<div class="artwork-info">
-<h3 class="artwork-title">Sharp Silvers</h3>
-<p>Charcoal black & white on humanity’s disregard for nature.</p>
-<div class="artwork-price">$75</div>
-<button class="order-btn">Order This Piece</button>
-</div>
-</div>
+        // Order artwork
+        function orderArtwork(id) {
+            const artwork = artworks.find(a => a.id === id);
+            const modal = document.getElementById('orderModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin: 1rem 0;">${artwork.emoji}</div>
+                    <h3>${artwork.title}</h3>
+                    <p>${artwork.description}</p>
+                    <div style="font-size: 1.5rem; color: #667eea; font-weight: bold; margin: 1rem 0;">
+                        $${artwork.price}
+                    </div>
+                    <p style="margin: 1.5rem 0;">
+                        Please scroll down to the contact form to place your order or send me a message with any questions!
+                    </p>
+                    <button class="submit-btn" onclick="scrollToContact()">Go to Contact Form</button>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
 
-<div class="artwork-card">
-<img class="artwork-image" src="images/IMG_0790.JPG" alt="Depths of the Real World">
-<div class="artwork-info">
-<h3 class="artwork-title">Depths of the Real World</h3>
-<p>Pencil sketch symbolizing pollution buried in Earth.</p>
-<div class="artwork-price">$110</div>
-<button class="order-btn">Order This Piece</button>
-</div>
-</div>
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
 
-<div class="artwork-card">
-<img class="artwork-image" src="images/1.png" alt="Victory">
-<div class="artwork-info">
-<h3 class="artwork-title">Victory</h3>
-<p>Digital art celebrating triumph and perseverance.</p>
-<div class="artwork-price">$85</div>
-<button class="order-btn">Order This Piece</button>
-</div>
-</div>
+        function scrollToContact() {
+            closeModal();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
 
-</div>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! Your message has been received. I\'ll get back to you within 24 hours to discuss your order and arrange payment/delivery. All proceeds go directly to cancer hospital support!');
+            this.reset();
+        });
 
-<section id="contact" style="margin-top:4rem;">
-<h2 style="text-align:center;color:#667eea;">Contact</h2>
-<p style="text-align:center;">
-Email: <strong>artforhope@email.com</strong>
-</p>
-</section>
+        // Animate progress bar on load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('progressFill').style.width = '35%';
+                animateValue('raisedAmount', 0, 1750, 2000, true);
+                animateValue('artworksSold', 0, 23, 2000);
+                animateValue('supporters', 0, 31, 2000);
+            }, 500);
+        });
 
-</div>
+        function animateValue(id, start, end, duration, isDollar = false) {
+            const element = document.getElementById(id);
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = isDollar ? `$${Math.floor(current)}` : Math.floor(current);
+            }, 16);
+        }
 
-<footer>
-<p>© 2024 Art for Hope Initiative</p>
-<p>100% of proceeds benefit cancer hospitals</p>
-</footer>
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
 
-</body>
-</html>
+        // Initialize
+        populateGallery();
+    </script>
+
+</section></div></body></html>
