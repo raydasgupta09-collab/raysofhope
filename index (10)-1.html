@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art for Hope – Supporting Cancer Hospitals</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+header h1 { font-size: 2.5rem; }
+header p { font-size: 1.2rem; }
+
+nav {
+    background: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: #667eea;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.artwork-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.artwork-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.artwork-info {
+    padding: 1.5rem;
+}
+
+.artwork-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.artwork-price {
+    font-size: 1.4rem;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.order-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-btn:hover { opacity: 0.9; }
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    nav ul { gap: 1rem; flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎨 Rays of Hope</h1>
+    <p>A High School Initiative to Support Cancer Hospitals</p>
+</header>
+
+<nav>
+<ul>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="container">
+
+<h2 id="gallery" style="text-align:center;color:#667eea;margin-bottom:2rem;">
+Available Artwork
+</h2>
+
+<div class="gallery">
+
+<div class="artwork-card">
+<img class="artwork-image" src="images/IMG_0120.jpeg" alt="Static of the Deep">
+<div class="artwork-info">
+<h3 class="artwork-title">Static of the Deep</h3>
+<p>Black and white paint. A shark symbolizing humanity losing connection to nature.</p>
+<div class="artwork-price">$65</div>
+<button class="order-btn">Order This Piece</button>
+</div>
+</div>
+
+<div class="artwork-card">
+<img class="artwork-image" src="images/IMG_0104.jpeg" alt="Gaia's Jaw">
+<div class="artwork-info">
+<h3 class="artwork-title">Gaia's Jaw</h3>
+<p>Watercolors depicting Earth as a living organism.</p>
+<div class="artwork-price">$95</div>
+<button class="order-btn">Order This Piece</button>
+</div>
+</div>
+
+<div class="artwork-card">
+<img class="artwork-image" src="images/IMG_0106.jpeg" alt="Sharp Silvers">
+<div class="artwork-info">
+<h3 class="artwork-title">Sharp Silvers</h3>
+<p>Charcoal black & white on humanity’s disregard for nature.</p>
+<div class="artwork-price">$75</div>
+<button class="order-btn">Order This Piece</button>
+</div>
+</div>
+
+<div class="artwork-card">
+<img class="artwork-image" src="images/IMG_0790.JPG" alt="Depths of the Real World">
+<div class="artwork-info">
+<h3 class="artwork-title">Depths of the Real World</h3>
+<p>Pencil sketch symbolizing pollution buried in Earth.</p>
+<div class="artwork-price">$110</div>
+<button class="order-btn">Order This Piece</button>
+</div>
+</div>
+
+<div class="artwork-card">
+<img class="artwork-image" src="images/1.png" alt="Victory">
+<div class="artwork-info">
+<h3 class="artwork-title">Victory</h3>
+<p>Digital art celebrating triumph and perseverance.</p>
+<div class="artwork-price">$85</div>
+<button class="order-btn">Order This Piece</button>
+</div>
+</div>
+
+</div>
+
+<section id="contact" style="margin-top:4rem;">
+<h2 style="text-align:center;color:#667eea;">Contact</h2>
+<p style="text-align:center;">
+Email: <strong>artforhope@email.com</strong>
+</p>
+</section>
+
+</div>
+
+<footer>
+<p>© 2024 Art for Hope Initiative</p>
+<p>100% of proceeds benefit cancer hospitals</p>
+</footer>
+
+</body>
+</html>
