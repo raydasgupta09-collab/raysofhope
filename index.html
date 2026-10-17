@@ -76,6 +76,26 @@ nav a:hover {
     display: block;
 }
 
+.featured {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.featured .artwork-image {
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
+
+.featured .artwork-title {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.gallery .artwork-image {
+    height: 300px;
+}
+
 .artwork-info {
     padding: 1.5rem;
 }
@@ -114,6 +134,7 @@ footer {
 
 @media (max-width: 768px) {
     nav ul { gap: 1rem; flex-wrap: wrap; }
+    .gallery { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -182,11 +203,6 @@ Available Artwork
     <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_2280.jpg" alt="Deep Down">
         <div class="artwork-info"><h3 class="artwork-title">Deep Down</h3></div>
-    </div>
-
-    <div class="artwork-card">
-        <img class="artwork-image" src="images/IMG_2281.jpg" alt="Transformation">
-        <div class="artwork-info"><h3 class="artwork-title">Transformation</h3></div>
     </div>
 
     <div class="artwork-card">
