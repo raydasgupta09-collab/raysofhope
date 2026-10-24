@@ -79,30 +79,6 @@ nav a:hover {
 .featured {
     max-width: 900px;
     margin: 0 auto 3rem;
-    
-.top-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.top-row .artwork-card {
-    overflow: hidden;
-}
-
-.top-row .artwork-image {
-    width: 100%;
-    height: 400px !important;
-    object-fit: contain !important;
-    object-position: center;
-}
-
-
-@media (max-width: 768px) {
-    .top-row {
-        grid-template-columns: 1fr;
-    }
 }
 
 .featured .artwork-image {
@@ -180,7 +156,7 @@ footer {
 
 <div class="container">
 
-    <!-- Featured alligator at the top -->
+    <!-- Featured alligator -->
     <div class="artwork-card featured">
         <img class="artwork-image"
              src="images/IMG_0104.jpeg"
@@ -190,30 +166,17 @@ footer {
         </div>
     </div>
 
-    <!-- Birds Eye View and Deep Down side by side -->
-    <div class="top-row">
-
-        <div class="artwork-card">
-            <img class="artwork-image"
-                 src="images/IMG_9745 (1).jpeg"
-                 alt="Birds Eye View">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Birds Eye View</h3>
-            </div>
+    <!-- Featured Birds Eye View -->
+    <div class="artwork-card featured">
+        <img class="artwork-image"
+             src="images/IMG_9745 (1).jpeg"
+             alt="Birds Eye View">
+        <div class="artwork-info">
+            <h3 class="artwork-title">Birds Eye View</h3>
         </div>
-
-        <div class="artwork-card">
-            <img class="artwork-image"
-                 src="images/IMG_2280.jpg"
-                 alt="Deep Down">
-            <div class="artwork-info">
-                <h3 class="artwork-title">Deep Down</h3>
-            </div>
-        </div>
-
     </div>
 
-    <!-- Remaining artwork in the original three-column grid -->
+    <!-- Remaining artwork in the normal grid -->
     <div class="gallery">
 
         <div class="artwork-card">
@@ -249,6 +212,11 @@ footer {
         <div class="artwork-card">
             <img class="artwork-image" src="images/IMG_0106.jpeg" alt="Sharp Silvers">
             <div class="artwork-info"><h3 class="artwork-title">Sharp Silvers</h3></div>
+        </div>
+
+        <div class="artwork-card">
+            <img class="artwork-image" src="images/IMG_2280.jpg" alt="Deep Down">
+            <div class="artwork-info"><h3 class="artwork-title">Deep Down</h3></div>
         </div>
 
     </div>
