@@ -6,7 +6,7 @@
 <title>Art for Hope – Supporting Cancer Hospitals</title>
 
 <style>
- { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -59,25 +59,8 @@ nav a:hover {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-}
-
-/* Default artwork cards */
-.gallery .artwork-card {
-    grid-column: span 2;
-}
-
-/* Birds Eye View and Deep Down: full width */
-.gallery .full-width {
-    grid-column: span 6;
-    width: 100%;
-    object-fit: cover ;
-}
-
-/* Two artworks per row */
-.gallery .half-width {
-    grid-column: span 3;
 }
 
 .artwork-card {
@@ -101,7 +84,7 @@ nav a:hover {
 .featured .artwork-image {
     height: auto;
     max-height: none;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .featured .artwork-title {
@@ -179,60 +162,52 @@ footer {
         <h3 class="artwork-title">Alligator on The Wall</h3>
     </div>
 </div>
-    
+
+<!-- 3x3 grid -->
 <div class="gallery">
-    <div class="artwork-card full-width">
-    <img class="artwork-image"
-         src="images/IMG_9745 (1).jpeg"
-         alt="Birds Eye View">
-        <h3 class="artwork-title">Birds Eye View</h3>
-          <div class="artwork-info">
+     <div class="artwork-card">
+        <img class="artwork-image" src="images/IMG_9745 (1).jpeg" alt="Birds Eye View">
+        <div class="artwork-info"><h3 class="artwork-title">Birds Eye View</h3></div>
     </div>
-</div>
 
-    <div class="artwork-card full-width">
-    <img class="artwork-image"
-         src="images/IMG_2280.jpg"
-         alt="Deep Down">
-    <div class="artwork-info">
-        <h3 class="artwork-title">Deep Down</h3>
-    </div>
-</div>
-
-    <!-- 2x2 grid -->
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_0120.jpeg" alt="Deep Static">
         <div class="artwork-info"><h3 class="artwork-title">Deep Static</h3></div>
     </div>
 
-     <div class="artwork-card half-width">
+     <div class="artwork-card">
         <img class="artwork-image" src="images/1.png" alt="DB no T">
         <div class="artwork-info"><h3 class="artwork-title">DB no T  *digital*</h3></div>
     </div>
 
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_9688.jpeg" alt="Tool Loot">
         <div class="artwork-info"><h3 class="artwork-title">Tool Loot</h3></div>
     </div>
 
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_9689.jpeg" alt="Blind Eyes">
         <div class="artwork-info"><h3 class="artwork-title">Blind Eyes</h3></div>
     </div>
 
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_9690.jpeg" alt="Skulless Head">
         <div class="artwork-info"><h3 class="artwork-title">Skulless Head</h3></div>
     </div>
 
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_9691.jpeg" alt="Windy City">
         <div class="artwork-info"><h3 class="artwork-title">Windy City</h3></div>
     </div>
 
-    <div class="artwork-card half-width">
+    <div class="artwork-card">
         <img class="artwork-image" src="images/IMG_0106.jpeg" alt="Sharp Silvers">
         <div class="artwork-info"><h3 class="artwork-title">Sharp Silvers</h3></div>
+    </div>
+
+    <div class="artwork-card">
+        <img class="artwork-image" src="images/IMG_2280.jpg" alt="Deep Down">
+        <div class="artwork-info"><h3 class="artwork-title">Deep Down</h3></div>
     </div>
 
 
