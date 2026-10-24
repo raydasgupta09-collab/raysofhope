@@ -137,6 +137,43 @@ footer {
     .gallery { grid-template-columns: 1fr; }
 }
 
+.contact-section {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #f5f5ff;
+    border-radius: 10px;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+}
+
+.contact-section p {
+    margin: 0.75rem 0;
+}
+
+.contact-details a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Smooth scrolling when clicking Contact */
+html {
+    scroll-behavior: smooth;
+}
+
+#contact {
+    scroll-margin-top: 100px;
+}
+
+
 </style>
 </head>
 
@@ -223,6 +260,22 @@ footer {
     </div>
 
 </div>
+    
+<div class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <p>Interested in my artwork? Feel free to reach out!</p>
+
+    <div class="contact-details">
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:YOUR_EMAIL_HERE">ray.dasgupta09@gmail.com</a>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <a href="tel:YOUR_PHONE_HERE">9143279534</a>
+        </p>
+    </div>
 
 </div>
 
