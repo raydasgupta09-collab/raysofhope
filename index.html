@@ -137,14 +137,16 @@ footer {
     .gallery { grid-template-columns: 1fr; }
 }
 
-.gallery .artwork-card:nth-last-child(2):nth-child(3n + 1) {
-    grid-column: 1;
+
+/* Center the last row of two artworks */
+.gallery .artwork-card:nth-last-child(2) {
+    grid-column: 1 / 2;
     margin-left: 50%;
-    transform: translateX(50%);
+    width: 100%;
 }
 
-.gallery .artwork-card:last-child:nth-child(3n + 2) {
-    grid-column: 3;
+.gallery .artwork-card:last-child {
+    grid-column: 2 / 3;
 }
 
 </style>
