@@ -136,6 +136,17 @@ footer {
     nav ul { gap: 1rem; flex-wrap: wrap; }
     .gallery { grid-template-columns: 1fr; }
 }
+
+.gallery .artwork-card:nth-last-child(2):nth-child(3n + 1) {
+    grid-column: 1;
+    margin-left: 50%;
+    transform: translateX(50%);
+}
+
+.gallery .artwork-card:last-child:nth-child(3n + 2) {
+    grid-column: 3;
+}
+
 </style>
 </head>
 
